@@ -1,0 +1,20 @@
+{
+    "name": "doohsom/budpay",
+    "description": "Laravel package for budpay",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Doohsom\\Budpay\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "doohsom",
+            "email": "amoshood45@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle" : "^7.0.1"
+    }
+}
