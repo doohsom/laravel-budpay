@@ -6,14 +6,32 @@ use AcceptPayment;
 use Illuminate\Support\Facades\Http;
 
 trait ServerToServer{
-    
+
     public function testEncryption(array $data)
     {
-        return 'test encryption';
+
+        return Http::withHeaders(
+            [
+                'Content-Type' => 'application/json',
+            ]
+        )->withToken($this->secretKey)
+            ->post(
+            $this->baseUrl . '/test/encryption',
+                $data
+        )->json();
+
     }
+
 
     public function initialiseS2STransaction(array $data)
     {
-        return 'initialise s2s transaction';
+        return Http::withHeaders(
+            [
+                'Content-Type' => 'application/json',
+            ]
+        )->withToken($this->secretKey)->post(
+            $this->baseUrl . '/s2s/transaction/initialize',
+            $data
+        )->json();
     }
 }
