@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 trait FetchTransaction{
 
-    public function findTransaction(int $transaction_id): string
+    public function findTransaction(int $transaction_id)
     {
         return Http::withToken($this->secretKey)->get(
             $this->baseUrl . '/transaction/' . $transaction_id
@@ -21,7 +21,7 @@ trait FetchTransaction{
      * @return string
      */
 
-    public function queryTransaction(string $search_value): string
+    public function queryTransaction(string $search_value)
     {
         return Http::withToken($this->secretKey)->get(
             $this->baseUrl . '/transaction_query/' . $search_value
