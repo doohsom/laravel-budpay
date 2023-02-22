@@ -6,7 +6,7 @@ use Bill;
 use Illuminate\Support\Facades\Http;
 
 trait ManageElectricity{
-    
+
     public function getAllElectricity(array $data=[])
     {
         return "get all electricity";

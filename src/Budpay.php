@@ -25,33 +25,28 @@ class Budpay
         $this->baseUrl = config('budpay.baseUrl');
     }
 
-    public function bill()
+    public function bill(): Bill
     {
-        $bills = new Bill();
-        return $bills;
+        return new Bill();
     }
 
-    public function identity()
+    public function identity(): Identity
     {
-        $identities = new Identity();
-        return $identities;
+        return new Identity();
     }
 
-    public function payout()
+    public function payout(): Payout
     {
-        $payout = new Payout();
-        return $payout;
+        return new Payout();
     }
 
-    public function paymentFeatures()
+    public function paymentFeatures(): PaymentFeature
     {
-        $paymentFeatures = new PaymentFeature();
-        return $paymentFeatures;
+        return new PaymentFeature();
     }
 
-    public function acceptPayment()
+    public function acceptPayment(): AcceptPayment
     {
-        $acceptPayment = new AcceptPayment();
-        return $acceptPayment;
+        return new AcceptPayment();
     }
 }

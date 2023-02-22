@@ -6,9 +6,11 @@ use AcceptPayment;
 use Illuminate\Support\Facades\Http;
 
 trait VerifyTransaction{
-    
-    public function verifyTransactionWithReference(array $data=[])
+
+    public function verifyTransactionWithReference(string $reference)
     {
-        return 'verify transaction with reference';
+        return Http::withToken($this->secretKey)->get(
+            $this->baseUrl . '/transaction/verify/' . $reference
+        )->json();
     }
 }
