@@ -7,9 +7,11 @@ use Illuminate\Support\Facades\Http;
 
 trait WalletBalance{
 
-    public function getWalletBalanceByCurrency(array $data=[])
+    public function getWalletBalanceByCurrency(string $currency)
     {
-        return 'wallet balacne by currency';
+        return Http::withToken($this->secretKey)->get(
+            $this->baseUrl . '/wallet_balance/'. $currency
+        )->json();
     }
 
 }

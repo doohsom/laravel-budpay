@@ -9,7 +9,9 @@ trait BankList{
 
     public function getBankList(array $data=[])
     {
-        return 'bank list';
+        return Http::withToken($this->secretKey)->get(
+            $this->baseUrl . '/bank_list', $data
+        )->json();
     }
 
 }

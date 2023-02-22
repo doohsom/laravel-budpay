@@ -9,10 +9,8 @@ trait ManageAirtime{
 
     public function getAllAirtime(array $data=[])
     {
-
         return Http::withToken($this->secretKey)->get(
-            $this->baseUrl . '/airtime',
-            $data
+            $this->baseUrl . '/airtime', $data
         )->json();
     }
 
@@ -24,7 +22,7 @@ trait ManageAirtime{
              "Authorization" => "Bearer " . $this->secretKey,
              "Encryption" => $signatureKey,
              "Content-Type" => "application/json",
-        ])->post($this->baseUrl . '/airtime/topup',$data
+        ])->post($this->baseUrl . '/airtime/topup', $data
         )->json();
     }
 }

@@ -9,7 +9,9 @@ trait VerifyAccountNumber{
 
     public function verifyAccountName(array $data)
     {
-        return 'account name';
+        return Http::withToken($this->secretKey)->post(
+            $this->baseUrl . '/account_name_verify', $data
+        )->json();
     }
 
 }

@@ -10,6 +10,5 @@ class Bill extends Budpay{
     use ManageAirtime;
     use ManageTv;
     use ManageElectricity;
-
         
 }

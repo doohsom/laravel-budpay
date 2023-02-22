@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\Http;
 
 trait BvnVerification{
     
-    public function bvnVerify(array $data=[])
+    public function bvnVerify(array $data)
     {
-        return 'verify bvn';
+        return Http::withToken($this->secretKey)->post(
+            $this->baseUrl . '/bvn/verify', $data
+        )->json();
     }
 }   

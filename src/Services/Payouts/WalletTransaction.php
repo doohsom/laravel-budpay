@@ -7,9 +7,11 @@ use Illuminate\Support\Facades\Http;
 
 trait WalletTransaction{
 
-    public function getWalletTransactionsByCurrency(array $data=[])
+    public function getWalletTransactionsByCurrency(string $currency)   
     {
-        return 'wallet transaction by currency';
+        return Http::withToken($this->secretKey)->get(
+            $this->baseUrl . '/wallet_transactions/'. $currency
+        )->json();
     }
 
 }
