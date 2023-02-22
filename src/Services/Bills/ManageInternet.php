@@ -17,7 +17,7 @@ trait ManageInternet{
     public function getPlansByProvider(string $provider)
     {
         return Http::withToken($this->secretKey)->get(
-            $this->baseUrl . '/internet/plans/' . $provider, $data
+            $this->baseUrl . '/internet/plans/' . $provider
         )->json();
     }
 

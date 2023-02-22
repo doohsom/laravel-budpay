@@ -17,7 +17,7 @@ trait ManageTv{
     public function getpackagesByProvider(string $provider)
     {
         return Http::withToken($this->secretKey)->get(
-            $this->baseUrl . '/tv/packages/'. $provider, $data
+            $this->baseUrl . '/tv/packages/'. $provider
         )->json();
     }
 
