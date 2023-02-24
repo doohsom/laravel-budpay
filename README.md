@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# laravel-budpay
-=======
-
-B
 Run
 ```
 composer require doohsom/laravel-budpay
@@ -25,4 +20,3 @@ BUDPAY_SECRET_KEY="sk_test_xxxxxxxxxxxxxxxxxxxxx"
 BUDPAY_PUBLIC_KEY="pk_test_xxxxxxxxxxxxxxxxxxxxx"
 BUDPAY_BASE_URL="demosite"
 ```
->>>>>>> master
