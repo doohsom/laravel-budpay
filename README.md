@@ -14,9 +14,10 @@ Run
 php artisan vendor:publish --provider="Doohsom\Budpay\BudpayServiceProvider"
 ```
 
-Open up your .env file add the following keys
+Open up your .env file add the following key
 ```
 BUDPAY_SECRET_KEY="sk_test_xxxxxxxxxxxxxxxxxxxxx"
 BUDPAY_PUBLIC_KEY="pk_test_xxxxxxxxxxxxxxxxxxxxx"
 BUDPAY_BASE_URL="demosite"
+BUDPAY_BASE_URL_V1="demosite1"
 ```
