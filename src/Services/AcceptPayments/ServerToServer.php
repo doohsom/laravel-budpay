@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 trait ServerToServer{
 
-    public function testEncryption(array $data)
+    public function testEncryption(array $data, $version = null)
     {
         return Http::withToken($this->secretKey)->post(
             $this->baseUrl . '/test/encryption', $data
@@ -15,7 +15,7 @@ trait ServerToServer{
     }
 
 
-    public function initialiseS2STransaction(array $data)
+    public function initialiseS2STransaction(array $data, $version = null)
     {
         return Http::withToken($this->secretKey)->post(
             $this->baseUrl . '/s2s/transaction/initialize', $data

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 trait PayoutFees{
 
-    public function payoutFee(array $data)
+    public function payoutFee(array $data, $version = null)
     {
         return Http::withToken($this->secretKey)->post(
             $this->baseUrl . '/payout_fee', $data

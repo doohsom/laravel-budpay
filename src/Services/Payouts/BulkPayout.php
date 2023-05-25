@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 trait BulkPayout{
 
-    public function bulkBankTransfer(array $data)
+    public function bulkBankTransfer(array $data, $version = null)
     {
         ksort($data);
         $signatureKey = hash_hmac('sha512', json_encode($data), $this->publicKey);

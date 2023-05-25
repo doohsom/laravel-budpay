@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 trait VerifyPayout{
 
-    public function verifyPayout(string $reference)
+    public function verifyPayout(string $reference, $version = null)
     {
         return Http::withToken($this->secretKey)->get(
             $this->baseUrl . '/payout/'. $reference

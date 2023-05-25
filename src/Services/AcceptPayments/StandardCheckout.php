@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 trait StandardCheckout{
 
-    public function initialiseTransaction(array $data)
+    public function initialiseTransaction(array $data, $version = null)
     {
         return Http::withToken($this->secretKey)->post(
             $this->baseUrl . '/transaction/initialize', $data
