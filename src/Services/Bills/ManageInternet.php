@@ -9,22 +9,25 @@ trait ManageInternet{
 
     public function getAllInternet(array $data=[], $version = null)
     {
+        $baseUrl = (strtolower($version) === "v1") ? config('budpay.baseUrlV1') : $this->baseUrl;
         return Http::withToken($this->secretKey)->get(
-            $this->baseUrl . '/internet', $data
+            $baseUrl . '/internet', $data
         )->json();
     }
 
     public function getPlansByProvider(string $provider, $version = null)
     {
+        $baseUrl = (strtolower($version) === "v1") ? config('budpay.baseUrlV1') : $this->baseUrl;
         return Http::withToken($this->secretKey)->get(
-            $this->baseUrl . '/internet/plans/' . $provider
+            $baseUrl . '/internet/plans/' . $provider
         )->json();
     }
 
     public function data(array $data, $version = null)
     {
+        $baseUrl = (strtolower($version) === "v1") ? config('budpay.baseUrlV1') : $this->baseUrl;
         return Http::withToken($this->secretKey)->post(
-            $this->baseUrl . '/internet/data', $data
+            $baseUrl . '/internet/data', $data
         )->json();
     }
 

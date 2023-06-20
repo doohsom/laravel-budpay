@@ -9,22 +9,25 @@ trait ManageElectricity{
 
     public function getAllElectricity(array $data=[], $version = null)
     {
+        $baseUrl = (strtolower($version) === "v1") ? config('budpay.baseUrlV1') : $this->baseUrl;
         return Http::withToken($this->secretKey)->get(
-            $this->baseUrl . '/electricity', $data
+            $baseUrl . '/electricity', $data
         )->json();
     }
 
     public function validateElectricity(array $data, $version = null)
     {
+        $baseUrl = (strtolower($version) === "v1") ? config('budpay.baseUrlV1') : $this->baseUrl;
         return Http::withToken($this->secretKey)->post(
-            $this->baseUrl . '/electricity/validate', $data
+            $baseUrl . '/electricity/validate', $data
         )->json();
     }
 
     public function rechargeElectricity(array $data, $version = null)
     {
+        $baseUrl = (strtolower($version) === "v1") ? config('budpay.baseUrlV1') : $this->baseUrl;
         return Http::withToken($this->secretKey)->post(
-            $this->baseUrl . '/electricity/recharge', $data
+            $baseUrl . '/electricity/recharge', $data
         )->json();
     }
 }

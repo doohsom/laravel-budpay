@@ -9,15 +9,17 @@ trait VerifyPayout{
 
     public function verifyPayout(string $reference, $version = null)
     {
+        $baseUrl = (strtolower($version) === "v1") ? config('budpay.baseUrlV1') : $this->baseUrl;
         return Http::withToken($this->secretKey)->get(
-            $this->baseUrl . '/payout/'. $reference
+            $baseUrl . '/payout/'. $reference
         )->json();
     }
 
     public function getPayoutTransfers(array $data=[])
     {
+        $baseUrl = (strtolower($version) === "v1") ? config('budpay.baseUrlV1') : $this->baseUrl;
         return Http::withToken($this->secretKey)->get(
-            $this->baseUrl . '/list_transfers', $data
+            $baseUrl . '/list_transfers', $data
         )->json();
     }
 
