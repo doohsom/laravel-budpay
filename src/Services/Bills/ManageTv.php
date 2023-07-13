@@ -33,9 +33,14 @@ trait ManageTv{
 
     public function payTv(array $data, $version = null)
     {
+        ksort($data);
         $baseUrl = (strtolower($version) === "v1") ? config('budpay.baseUrlV1') : $this->baseUrl;
-        return Http::withToken($this->secretKey)->post(
-            $baseUrl . '/tv/pay', $data
-        )->json();
+        $signatureKey = hash_hmac('sha512', json_encode($data), $this->publicKey);
+        return Http::withHeaders([
+            "Authorization" => "Bearer " . $this->secretKey,
+            "Encryption" => $signatureKey,
+            "Content-Type" => "application/json",
+       ])->post($baseUrl . '/tv/pay', $data
+       )->json();
     }
 }
