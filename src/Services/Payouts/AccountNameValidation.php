@@ -9,8 +9,9 @@ trait AccountNameValidation{
 
     public function accountNameVerify(array $data, $version = null)
     {
+        $baseUrl = (strtolower($version) === "v1") ? config('budpay.baseUrlV1') : $this->baseUrl;
         return Http::withToken($this->secretKey)->post(
-            $this->baseUrl . '/account_name_verify', $data
+            $baseUrl . '/account_name_verify', $data
         )->json();
     }
 
